@@ -1,0 +1,89 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.modal {
+	// Modal Backdrop
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(0, 0, 0, 0.7);
+	z-index: 1;
+
+	// @include desktop {
+	// 	padding: 2.5rem 4rem;
+	// }
+	&__content {
+		background-color: $global-white-color;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+
+		//Mobile Size
+		width: 100vw;
+		height: 100vh;
+		padding: 0 2rem;
+
+		@include tablet {
+			//Table Modal Size
+			height: 16.375rem;
+			width: 85%;
+			padding: 0.875rem 2rem;
+		}
+
+		@include desktop {
+			//Desktop Modal Size
+			width: 50%;
+		}
+	}
+
+	&__close {
+		cursor: pointer;
+		background-color: $global-white-color;
+		border: 0;
+		align-self: flex-end;
+		position: absolute;
+		top: 1rem;
+		right: 1rem;
+	}
+
+	&__textbox {
+		margin-top: 3rem;
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+
+	&__title {
+		@include mPageHeader;
+		@include tablet {
+			@include DTPageHeader;
+		}
+	}
+
+	&__text {
+		@include mBodyLarge;
+		@include tablet {
+			@include DTBodyLarge;
+		}
+	}
+
+	&__btns {
+		width: 100%;
+		display: flex;
+		gap: 1rem;
+		padding: 1rem 0;
+		justify-content: flex-end;
+
+		@include tablet {
+			gap: 0.5rem;
+		}
+	}
+}

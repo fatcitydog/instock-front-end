@@ -1,0 +1,133 @@
+@use "./variables" as *;
+@use "./fonts" as *;
+
+//tablet format
+@mixin tablet {
+	@media (min-width: $tabletmin-width) {
+		@content;
+	}
+}
+
+//desktop format
+@mixin desktop {
+	@media (min-width: $desktop-width) {
+		@content;
+	}
+}
+
+//padding
+@mixin windowPaddingOuter {
+	padding-left: $mobile-margin-width;
+	padding-right: $mobile-margin-width;
+	@include tablet {
+		padding-left: $tablet-margin-width;
+		padding-right: $tablet-margin-width;
+	}
+	@include desktop {
+		padding-left: calc(
+			(100% - 12 * #{$desktop-column-width} - 11 * #{$desktop-gutter-width}) / 2
+		);
+		padding-right: calc(
+			(100% - 12 * #{$desktop-column-width} - 11 * #{$desktop-gutter-width}) / 2
+		);
+	}
+}
+
+@mixin windowPaddingInner {
+	padding-left: 1.5rem;
+	padding-right: 1.5rem;
+	@include tablet {
+		padding-left: 2rem;
+		padding-right: 2rem;
+	}
+	@include desktop {
+		padding-left: 2.5rem;
+		padding-right: 2.5rem;
+	}
+}
+
+//mobile font sytle
+@mixin mPageHeader {
+	font-size: 1.75rem;
+	line-height: 2.25rem;
+	font-weight: bold;
+}
+
+@mixin mSubHeader {
+	font-size: 1.25rem;
+	line-height: 1.75rem;
+	font-weight: bold;
+}
+
+@mixin mLabAndBut {
+	font-size: 0.8125rem;
+	line-height: 1.25rem;
+	font-weight: bold;
+}
+
+@mixin mTableHeader {
+	font-size: 0.6875rem;
+	line-height: 1rem;
+	font-weight: bold;
+}
+
+@mixin mBodyLarge {
+	font-size: 0.9375rem;
+	line-height: 1.625rem;
+	font-weight: 400;
+}
+
+@mixin mBodyMedium {
+	font-size: 0.8125rem;
+	line-height: 1.25rem;
+	font-weight: 400;
+}
+
+@mixin mBodySmall {
+	font-size: 0.6875rem;
+	line-height: 1rem;
+	font-weight: 400;
+}
+
+//desktop and tablet font sytle
+@mixin DTPageHeader {
+	font-size: 2rem;
+	line-height: 2.5rem;
+	font-weight: bold;
+}
+
+@mixin DTSubHeader {
+	font-size: 1.5rem;
+	line-height: 2rem;
+	font-weight: bold;
+}
+
+@mixin DTLabAndBut {
+	font-size: 0.875rem;
+	line-height: 1.375rem;
+	font-weight: bold;
+}
+
+@mixin DTTableHeader {
+	font-size: 0.75rem;
+	line-height: 1.125rem;
+	font-weight: bold;
+}
+
+@mixin DTBodyLarge {
+	font-size: 1rem;
+	line-height: 1.75rem;
+	font-weight: 400;
+}
+
+@mixin DTBodyMedium {
+	font-size: 0.875rem;
+	line-height: 1.375rem;
+	font-weight: 400;
+}
+
+@mixin DTBodySmall {
+	font-size: 0.75rem;
+	line-height: 1.125rem;
+	font-weight: 400;
+}

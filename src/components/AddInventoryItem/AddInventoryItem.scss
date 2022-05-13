@@ -1,0 +1,164 @@
+@use "../../styles/partials/fonts" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+select {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	background-image: url("../../assets/icons/arrow_drop_down-24px.svg");
+}
+
+.add-item-container {
+	@include windowPaddingOuter;
+	background-color: $page-column-cta-bg;
+}
+
+.add-item {
+	border-radius: 3px;
+	box-shadow: 0 2px 5px 0 $shadow;
+	background-color: $global-white-color;
+	transform: translate(0, -3.25rem);
+
+	@include tablet {
+		transform: translate(0, -6.125rem);
+	}
+
+	&__header {
+		@include windowPaddingInner;
+		display: flex;
+		justify-content: flex-start;
+		align-items: flex-start;
+		padding-bottom: $mPadding;
+		border-bottom: solid 1px $outline-borders;
+
+		@include tablet {
+			align-items: center;
+			padding-bottom: $dTPadding;
+		}
+	}
+
+	&__goback-button {
+		border: 0;
+		background-color: $global-white-color;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin-right: 0.5rem;
+		padding-top: calc(#{$mPaddingPlus} + 0.5rem);
+
+		@include tablet {
+			padding-top: $dTPaddingPlus;
+		}
+	}
+
+	&__title {
+		@include mPageHeader;
+		padding-top: $mPaddingPlus;
+
+		@include tablet {
+			@include DTPageHeader;
+			padding-top: $dTPaddingPlus;
+		}
+	}
+
+	&__input-fields {
+		padding-top: $mPadding;
+		padding-bottom: $mPadding;
+
+		@include tablet {
+			display: flex;
+			justify-content: flex-start;
+			align-items: flex-start;
+			padding-top: $dTPadding;
+			padding-bottom: $dTPadding;
+		}
+	}
+
+	&__subtitle {
+		@include mSubHeader;
+
+		@include tablet {
+			@include DTSubHeader;
+		}
+	}
+
+	&__details {
+		@include windowPaddingInner;
+		width: 100%;
+
+		@include tablet {
+			width: 50%;
+			padding-right: 2rem;
+			border-right: solid 1px $outline-borders;
+		}
+
+		@include desktop {
+			padding-right: 2.5rem;
+		}
+	}
+
+	&__availability {
+		@include windowPaddingInner;
+		width: 100%;
+
+		@include tablet {
+			width: 50%;
+			padding-left: 2rem;
+		}
+
+		@include desktop {
+			padding-left: 2.5rem;
+		}
+	}
+
+	&__action {
+		@include windowPaddingInner;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding-top: $mPadding;
+		padding-bottom: $mPadding;
+		background-color: $page-column-cta-bg;
+
+		@include tablet {
+			justify-content: flex-end;
+			padding-top: $dTPadding;
+			padding-bottom: $dTPadding;
+		}
+	}
+
+	&__cancel-button {
+		@include mLabAndBut;
+		border: solid 1px $outline-borders;
+		background-color: $global-white-color;
+		color: $table-column-header-placeholder-text;
+		width: calc((100% - 16px) / 2);
+		height: 36px;
+		border-radius: 20px;
+
+		@include tablet {
+			@include DTLabAndBut;
+			width: fit-content;
+			height: 2.375rem;
+			padding: 0 1rem;
+			margin-right: 1rem;
+		}
+	}
+
+	&__add-button {
+		@include mLabAndBut;
+		border: 0;
+		background-color: $interactive-elements-color;
+		color: $global-white-color;
+		width: calc((100% - 1rem) / 2);
+		height: 2.25rem;
+		border-radius: 1.25rem;
+
+		@include tablet {
+			@include DTLabAndBut;
+			width: fit-content;
+			height: 2.375rem;
+			padding: 0 1rem;
+		}
+	}
+}

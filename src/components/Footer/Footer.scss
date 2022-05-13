@@ -1,0 +1,14 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.footer {
+	background-color: $page-column-cta-bg;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding-bottom: 3rem;
+
+	&__title {
+		color: $table-column-header-placeholder-text;
+	}
+}

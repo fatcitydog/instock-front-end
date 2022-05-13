@@ -1,0 +1,86 @@
+@use "./fonts" as *;
+@use "./variables" as *;
+@use "./mixins" as *;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  @include mBodyMedium;
+  font-family: $primary-font;
+  color: $global-text-color;
+
+  @include tablet {
+    @include DTBodyMedium;
+  }
+}
+
+//button section
+.buttonSytle {
+  @include mLabAndBut;
+  height: 2.25rem;
+  width: 100%;
+  border-radius: 1.25rem;
+
+  @include tablet {
+    @include DTLabAndBut;
+    width: fit-content;
+    height: 2.375rem;
+    padding: 0 1rem;
+  }
+}
+
+.primaryButton {
+  border: none;
+  color: $global-white-color;
+  background-color: $interactive-elements-color;
+  &:hover {
+    color: $global-white-color;
+    background-color: $nav-header-and-button-hover-bg;
+  }
+}
+
+.secondaryButton {
+  border: 1px solid $table-column-header-placeholder-text;
+  color: $table-column-header-placeholder-text;
+  &:hover {
+    border: 1px solid $interactive-elements-color;
+    color: $interactive-elements-color;
+  }
+}
+
+.deleteButton {
+  color: $global-white-color;
+  background-color: $out-of-stock-delete;
+  &:hover {
+    background-color: $nav-header-and-button-hover-bg;
+  }
+}
+
+//form section
+.inputStyle {
+  height: 2.25rem;
+  background-position: right;
+  background-position-x: 96%;
+  background-repeat: no-repeat;
+  border: 1px solid $outline-borders;
+  border-radius: 1.25rem;
+  padding: 0 1rem;
+
+  @include tablet {
+    height: 2.375rem;
+    padding: 0 1rem;
+  }
+}
+
+//icon
+.iconBox {
+  width: 1.125rem;
+  height: 1.125rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

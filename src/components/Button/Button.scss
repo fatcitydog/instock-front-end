@@ -1,0 +1,52 @@
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
+
+//button section
+.btn {
+  cursor: pointer;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: inherit;
+  height: 2.25rem;
+  border-radius: 1.25rem;
+  width: 100%;
+  @include mLabAndBut;
+
+  @include tablet {
+    @include DTLabAndBut;
+    width: auto;
+    height: 2.375rem;
+    padding: 0 1rem;
+  }
+
+  &--primary {
+    color: $global-white-color;
+    background-color: $interactive-elements-color;
+    img {
+      filter: brightness(0) invert(1);
+    }
+    &:hover {
+      color: $global-white-color;
+      background-color: $nav-header-and-button-hover-bg;
+    }
+  }
+
+  &--secondary {
+    border: 1px solid $table-column-header-placeholder-text;
+    color: $table-column-header-placeholder-text;
+    &:hover {
+      border: 1px solid $interactive-elements-color;
+      color: $interactive-elements-color;
+    }
+  }
+
+  &--delete {
+    color: $global-white-color;
+    background-color: $out-of-stock-delete;
+    &:hover {
+      background-color: $nav-header-and-button-hover-bg;
+    }
+  }
+}

@@ -1,0 +1,234 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.inventory-list {
+	width: 100%;
+
+	&__header {
+		display: none;
+		width: 100%;
+
+		@include tablet {
+			display: flex;
+			justify-content: flex-start;
+			align-items: center;
+			background-color: $page-column-cta-bg;
+			padding: 0.875rem 2rem;
+		}
+
+		@include desktop {
+			padding-left: 2.5rem;
+			padding-right: 2.5rem;
+		}
+	}
+
+	&__sort-button,
+	&__action-button {
+		border: 0;
+		background-color: $page-column-cta-bg;
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		width: 18%;
+
+		&--thin {
+			width: 9%;
+		}
+
+		&--fat {
+			width: 27%;
+		}
+
+		&--show {
+			width: 22.5% !important;
+		}
+
+		&--hide {
+			display: none !important;
+		}
+	}
+
+	&__action-button {
+		justify-content: flex-end;
+		width: 10%;
+	}
+
+	&__sort-icon {
+		&--active {
+			// https://codepen.io/sosuke/pen/Pjoqqp
+			filter: brightness(0) grayscale(1) invert(26%) sepia(77%) saturate(1839%)
+				hue-rotate(209deg) brightness(108%) contrast(91%);
+		}
+	}
+
+	&__sort-by,
+	&__action {
+		text-transform: uppercase;
+		font-size: 0.75rem;
+		line-height: 1.125rem;
+		font-weight: 600;
+		color: $table-column-header-placeholder-text;
+	}
+}
+
+.inventory-item {
+	@include windowPaddingInner;
+	@include mBodyMedium;
+	border-top: 1px solid $outline-borders;
+	padding-top: $mPadding;
+	padding-bottom: $mPadding;
+	font-weight: 600;
+
+	@include tablet {
+		@include DTBodyMedium;
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		border-top: 0;
+		border-bottom: 1px solid $outline-borders;
+		padding-top: $dTPadding;
+		padding-bottom: $dTPadding;
+	}
+
+	&:hover {
+		background-color: rgba($interactive-elements-color, 0.09);
+	}
+
+	&__properties {
+		column-count: 2;
+		column-width: 50%;
+
+		@include tablet {
+			width: 90%;
+			column-count: 1;
+			display: flex;
+			justify-content: flex-start;
+			align-items: center;
+		}
+	}
+
+	&__property {
+		display: block;
+		margin-bottom: $mPadding;
+		height: 2.75rem;
+
+		@include tablet {
+			margin-bottom: 0;
+			height: fit-content;
+			width: 20%;
+		}
+
+		&--thin {
+			@include tablet {
+				width: 10%;
+			}
+		}
+
+		&--fat {
+			@include tablet {
+				width: 30%;
+			}
+		}
+
+		&--show {
+			@include tablet {
+				width: 25% !important;
+			}
+		}
+
+		&--hide {
+			display: none !important;
+		}
+
+		&--mobile-only {
+			@include tablet {
+				display: none;
+			}
+		}
+	}
+
+	&__property-name {
+		text-transform: uppercase;
+		padding-bottom: 0.25rem;
+		color: $table-column-header-placeholder-text;
+
+		@include tablet {
+			display: none;
+		}
+	}
+
+	&__link {
+		text-decoration: none;
+		color: $interactive-elements-color;
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		width: fit-content;
+	}
+
+	&__name {
+		font-weight: 600;
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+
+	&__action {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+
+		@include tablet {
+			width: 10%;
+			justify-content: flex-end;
+		}
+	}
+
+	&__edit-button,
+	&__delete-button {
+		background-color: transparent;
+		border: 0;
+	}
+
+	&__edit-button {
+		@include tablet {
+			margin-left: 1.5rem;
+		}
+	}
+
+	&__status-tag {
+		border-radius: 1.25rem;
+		height: 1.5rem;
+		width: fit-content;
+		padding: 0 0.5rem;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		@include tablet {
+			height: 1.625rem;
+		}
+
+		&--in-stock {
+			color: $instock-label;
+			background-color: rgba($instock-label, 7%);
+		}
+
+		&--out-of-stock {
+			color: $out-of-stock-delete;
+			background-color: rgba($out-of-stock-delete, 7%);
+		}
+	}
+
+	&__status {
+		text-transform: uppercase;
+	}
+}
+
+.inventory-item-container {
+	& > :last-child {
+		@include tablet {
+			border-bottom: 0;
+		}
+	}
+}

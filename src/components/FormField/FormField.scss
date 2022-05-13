@@ -1,0 +1,244 @@
+@use "../../styles/partials/fonts" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.input-error {
+	@include mBodySmall;
+	color: $out-of-stock-delete;
+	margin-top: 0.25rem;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+
+	@include tablet {
+		@include DTBodySmall;
+	}
+
+	&__icon {
+		width: 0.6875rem;
+		height: 0.6875rem;
+		margin-right: 0.25rem;
+
+		@include tablet {
+			width: 0.75rem;
+			height: 0.75rem;
+		}
+	}
+
+	&--hide {
+		display: none;
+	}
+}
+
+.text-field {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: flex-start;
+	margin-bottom: $mPadding;
+
+	@include tablet {
+		margin-bottom: $dTPadding;
+	}
+
+	&__label {
+		font-weight: 600;
+		margin-bottom: 0.25rem;
+	}
+
+	&__input {
+		width: 100%;
+		font-family: "Titillium Web";
+
+		&--error {
+			border: solid 1px $out-of-stock-delete !important;
+		}
+	}
+
+	&--top {
+		padding-top: $mPaddingPlus;
+
+		@include tablet {
+			padding-top: $dTPaddingPlus;
+		}
+	}
+
+	&--bottom {
+		@include tablet {
+			margin-bottom: 0;
+		}
+	}
+}
+
+.textarea-field {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: flex-start;
+	margin-bottom: $mPadding;
+
+	@include tablet {
+		margin-bottom: $dTPadding;
+	}
+
+	&__label {
+		font-weight: 600;
+		margin-bottom: 0.25rem;
+	}
+
+	&__input {
+		width: 100%;
+		font-family: "Titillium Web";
+		height: 6.75rem;
+		border: 1px solid $outline-borders;
+		border-radius: 1.25rem;
+		padding: 0.5rem 1rem;
+
+		@include tablet {
+			padding: 0.5rem 1rem;
+		}
+
+		&--error {
+			border: solid 1px $out-of-stock-delete !important;
+		}
+	}
+
+	&--top {
+		padding-top: $mPaddingPlus;
+
+		@include tablet {
+			padding-top: $dTPaddingPlus;
+		}
+	}
+
+	&--bottom {
+		@include tablet {
+			margin-bottom: 0;
+		}
+	}
+}
+
+// dropdown styles
+.dropdown {
+	margin-bottom: 1rem;
+
+	&__label {
+		font-weight: 600;
+	}
+
+	&__bar {
+		width: 100%;
+		margin-top: 0.25rem;
+	}
+
+	&__placeholder {
+		color: $table-column-header-placeholder-text;
+
+		&--selected {
+			color: $global-text-color;
+		}
+	}
+
+	&__control {
+		position: relative;
+		overflow: hidden;
+		width: 100%;
+		display: flex;
+		align-items: center;
+
+		&:hover {
+			border: solid 1px $interactive-elements-color;
+		}
+
+		&--error {
+			border: solid 1px $out-of-stock-delete !important;
+		}
+	}
+
+	&__arrow {
+		position: absolute;
+		bottom: 0.375rem;
+		right: 1rem;
+
+		@include tablet {
+			bottom: 0.4375rem;
+		}
+
+		&--open {
+			filter: brightness(0) grayscale(1) invert(26%) sepia(77%) saturate(1839%)
+				hue-rotate(209deg) brightness(108%) contrast(91%);
+		}
+	}
+
+	&__menu {
+		color: $global-text-color;
+		margin: 0 1rem;
+	}
+}
+
+.Dropdown-option {
+	padding: 0.5rem 0;
+	border-bottom: 1px solid $outline-borders;
+
+	&:hover {
+		background-color: $page-column-cta-bg;
+	}
+}
+
+.status-field {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: flex-start;
+	margin-bottom: $mPadding;
+
+	@include tablet {
+		margin-bottom: $dTPadding;
+	}
+
+	&__label {
+		font-weight: 600;
+		margin-bottom: 0.25rem;
+	}
+
+	&__choice {
+		width: 100%;
+		font-family: "Titillium Web";
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+	}
+
+	&__choice-group {
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		width: 50%;
+
+		@include tablet {
+			width: 40%;
+		}
+
+		@include desktop {
+			width: 25%;
+		}
+	}
+
+	&__choice-label {
+		margin-left: 0.5rem;
+	}
+
+	&--top {
+		padding-top: $mPaddingPlus;
+
+		@include tablet {
+			padding-top: $dTPaddingPlus;
+		}
+	}
+
+	&--bottom {
+		@include tablet {
+			margin-bottom: 0;
+		}
+	}
+}

@@ -1,0 +1,195 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.item-detail-container {
+	@include windowPaddingOuter;
+	background-color: $page-column-cta-bg;
+}
+
+.item-detail {
+	box-shadow: 0 2px 0.3125rem 0 $shadow;
+	background-color: $global-white-color;
+	transform: translate(0, -3.25rem);
+
+	@include tablet {
+		transform: translate(0, -6.125rem);
+	}
+
+	&__header {
+		@include windowPaddingInner;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		border-bottom: solid 1px $outline-borders;
+		padding-top: $mPaddingPlus;
+		padding-bottom: $mPadding;
+
+		@include tablet {
+			padding-top: $dTPaddingPlus;
+			padding-bottom: $dTPadding;
+		}
+	}
+
+	&__header1,
+	&__header2 {
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+	}
+
+	&__goback-button {
+		border: 0;
+		background-color: $global-white-color;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin-right: 0.5rem;
+	}
+
+	&__edit-link {
+		text-decoration: none;
+	}
+
+	&__edit-button {
+		padding: 0.25rem;
+		border-radius: 1.25rem;
+		border: 0;
+		background-color: $interactive-elements-color;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		@include tablet {
+			padding-left: 1rem;
+			padding-right: 1rem;
+		}
+	}
+
+	&__edit-icon {
+		filter: brightness(0) grayscale(1) invert(1);
+	}
+
+	&__edit-text {
+		display: none;
+
+		@include tablet {
+			@include DTLabAndBut;
+			display: block;
+			margin-left: 0.25rem;
+			color: $global-white-color;
+		}
+	}
+
+	&__name {
+		@include mPageHeader;
+
+		@include tablet {
+			@include DTPageHeader;
+		}
+	}
+
+	&__info {
+		@include windowPaddingInner;
+		@include mBodySmall;
+		padding-top: $mPadding;
+		padding-bottom: $mPadding;
+
+		@include tablet {
+			@include DTBodySmall;
+			padding-top: $dTPadding;
+			padding-bottom: $dTPadding;
+			display: flex;
+			justify-content: flex-start;
+			align-items: flex-start;
+		}
+	}
+
+	&__info1 {
+		width: 100%;
+
+		@include tablet {
+			width: 50%;
+			padding-right: calc(#{$tablet-gutter-width} * 2);
+		}
+
+		@include desktop {
+			padding-right: calc(#{$desktop-gutter-width} * 2);
+		}
+	}
+
+	&__info2 {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: flex-start;
+		align-items: flex-start;
+		width: 100%;
+
+		@include tablet {
+			border-left: solid 1px $outline-borders;
+			width: 50%;
+			padding-left: calc(#{$tablet-gutter-width} * 2);
+		}
+
+		@include desktop {
+			padding-left: calc(#{$desktop-gutter-width} * 2);
+		}
+	}
+
+	&__status,
+	&__quantity,
+	&__warehouse {
+		width: 50%;
+	}
+
+	&__description-title,
+	&__category-title,
+	&__status-title,
+	&__quantity-title,
+	&__warehouse-title {
+		text-transform: uppercase;
+		font-weight: 600;
+		color: $table-column-header-placeholder-text;
+		margin-bottom: 0.25rem;
+	}
+
+	&__description-content,
+	&__category-content,
+	&__status-tag,
+	&__quantity-content,
+	&__warehouse-content {
+		margin-bottom: $mPadding;
+
+		@include tablet {
+			margin-bottom: $dTPadding;
+		}
+	}
+
+	&__status-tag {
+		border-radius: 1.25rem;
+		height: 1.5rem;
+		width: fit-content;
+		padding: 0 0.5rem;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		@include tablet {
+			height: 1.625rem;
+		}
+
+		&--in-stock {
+			color: $instock-label;
+			background-color: rgba($instock-label, 7%);
+		}
+
+		&--out-of-stock {
+			color: $out-of-stock-delete;
+			background-color: rgba($out-of-stock-delete, 7%);
+		}
+	}
+
+	&__status-content {
+		text-transform: uppercase;
+		font-weight: 600;
+	}
+}

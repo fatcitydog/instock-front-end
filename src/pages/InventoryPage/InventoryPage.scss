@@ -1,0 +1,97 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.inventory-container {
+	@include windowPaddingOuter;
+	background-color: $page-column-cta-bg;
+}
+
+.inventory {
+	border-radius: 3px;
+	box-shadow: 0 2px 5px 0 $shadow;
+	background-color: $global-white-color;
+	transform: translate(0, -3.25rem);
+
+	@include tablet {
+		transform: translate(0, -6.125rem);
+	}
+
+	&__navigation {
+		@include windowPaddingInner;
+		display: flex;
+		flex-direction: column;
+		padding-top: $mPaddingPlus;
+		padding-bottom: $mPadding;
+
+		@include tablet {
+			flex-direction: row;
+			justify-content: space-between;
+			padding-top: $dTPaddingPlus;
+			padding-bottom: $dTPadding;
+		}
+	}
+
+	&__title-container {
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		padding-bottom: $mPadding;
+
+		@include tablet {
+			padding: 0;
+		}
+	}
+
+	&__title {
+		@include mPageHeader;
+
+		@include tablet {
+			@include DTPageHeader;
+		}
+	}
+
+	&__action-container {
+		width: 100%;
+
+		@include tablet {
+			display: flex;
+			justify-content: flex-end;
+			align-items: center;
+			width: 60%;
+		}
+
+		@include desktop {
+			width: 50%;
+		}
+	}
+
+	&__search-form {
+		margin-bottom: 1rem;
+		width: 100%;
+
+		@include tablet {
+			display: flex;
+			flex-direction: row;
+			justify-content: flex-end;
+			margin-bottom: 0;
+			margin-right: $tablet-gutter-width;
+			width: 185px;
+		}
+
+		@include desktop {
+			margin-right: $desktop-gutter-width;
+			width: 274px;
+		}
+	}
+
+	&__search-input {
+		background-image: url("../../assets/icons/search-24px.svg");
+		background-size: 17.49px;
+		width: 100%;
+	}
+
+	&__add-link {
+		text-decoration: none;
+		color: $global-white-color;
+	}
+}

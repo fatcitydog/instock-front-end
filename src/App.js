@@ -1,24 +1,48 @@
-import logo from './logo.svg';
-import './App.css';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
+import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
+import InventoryPage from "./pages/InventoryPage/InventoryPage";
+import InventoryItem from "./components/InventoryItem/InventoryItem";
+import AddInventoryItem from "./components/AddInventoryItem/AddInventoryItem";
+import EditInventoryItem from "./components/EditInventoryItem/EditInventoryItem";
+import "./App.scss";
+import Warehouses from "./pages/Warehouses/Warehouses";
+import ManageWarehouse from "./components/ManageWarehouse/ManageWarehouse";
+import CurrentWarehouse from "./pages/CurrentWarehouse/CurrentWarehouse";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Header />
+      <Switch>
+        <Redirect exact from="/" to="/warehouse" />
+        <Route path="/warehouse" exact component={Warehouses} />
+        <Route path="/warehouse/add" component={ManageWarehouse} />
+        <Route
+          path="/warehouse/edit/:warehouseId"
+          exact
+          component={ManageWarehouse}
+        />
+        <Route
+          path="/warehouse/:warehouseId"
+          exact
+          component={CurrentWarehouse}
+        />
+        <Route path="/inventory" exact component={InventoryPage} />
+        <Route path="/inventory/add" component={AddInventoryItem} />
+        <Route path="/inventory/:inventoryId" exact component={InventoryItem} />
+        <Route
+          path="/inventory/edit/:inventoryId"
+          component={EditInventoryItem}
+        />
+      </Switch>
+      <Footer />
+    </Router>
   );
 }
 

@@ -1,0 +1,247 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.addWh {
+  padding: 0 1rem;
+  background-color: $page-column-cta-bg;
+
+  @include tablet {
+    padding: 0 2rem;
+  }
+
+  @include desktop {
+    padding: 0 8.125rem;
+    bottom: 5.875rem;
+  }
+
+  &__wrapper {
+    background-color: $global-white-color;
+    box-shadow: 0px 2px 5px $shadow;
+    border-radius: 3px;
+    transform: translate(0, -3.25rem);
+
+    @include tablet {
+      transform: translate(0, -5.875rem);
+    }
+
+    @include desktop {
+      max-width: 63.75rem;
+      margin: 0 auto;
+    }
+  }
+  &__title-wrapper {
+    padding: 2rem 0 1.5rem 1.5rem;
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+    align-items: center;
+    background-color: $global-white-color;
+    border-radius: 3px 3px 0 0;
+
+    @include tablet {
+      justify-content: flex-start;
+      padding: 2rem 1.5rem 1.3125rem 1.625rem;
+    }
+  }
+
+  &__title {
+    font-size: 1.75rem;
+    font-weight: 600;
+    line-height: 2.25rem;
+    margin-right: auto;
+    color: $global-text-color;
+
+    @include tablet {
+      font-size: 2rem;
+      line-height: 2.5rem;
+    }
+  }
+
+  &__forms-wrapper {
+    @include tablet {
+      display: flex;
+      justify-content: space-between;
+
+      padding: 1.5rem 0;
+
+      border-top: 1px solid $outline-borders;
+    }
+  }
+
+  &__wh-wrapper,
+  &__contact-wrapper {
+    padding: 1rem 1.5rem 1.5rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid $outline-borders;
+
+    @include tablet {
+      width: 100%;
+      border-top: none;
+      padding: 0 2rem;
+    }
+    @include desktop {
+      padding: 0 2.5rem;
+    }
+  }
+
+  &__wh-wrapper {
+    @include tablet {
+      border-right: 1px solid $outline-borders;
+    }
+  }
+
+  &__details {
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    line-height: 1.75rem;
+
+    @include tablet {
+      font-size: 1.5rem;
+      line-height: 2rem;
+      margin-bottom: 2rem;
+    }
+  }
+
+  &__input-wrapper {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    @include tablet {
+      margin-bottom: 1.5rem;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+
+      @include tablet {
+        margin-bottom: 0.5rem;
+      }
+    }
+  }
+
+  &__label {
+    width: 100%;
+    font-size: 0.8125rem;
+    margin-bottom: 0.25rem;
+    font-weight: 600;
+
+    @include tablet {
+      font-size: 0.875rem;
+      line-height: 1.375rem;
+    }
+  }
+  &__input {
+    width: 100%;
+    height: 2.25rem;
+    margin-bottom: 0.25rem;
+    padding: 0.5rem 1rem;
+    border-radius: 1.25rem;
+    border: 1px solid $outline-borders;
+    color: $global-text-color;
+    outline-style: none;
+
+    &:focus {
+      border-color: $interactive-elements-color;
+    }
+
+    &::placeholder {
+      font-weight: 400;
+      font-size: 0.8125rem;
+      line-height: 1.25rem;
+      font-family: "Titillium Web";
+
+      @include tablet {
+        font-size: 0.875rem;
+        line-height: 1.375rem;
+      }
+    }
+
+    @include tablet {
+      height: 2.375rem;
+    }
+
+    &--error {
+      border-color: $out-of-stock-delete;
+    }
+  }
+
+  &__btn-wrapper {
+    padding: 1rem 1.5rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    background-color: $page-column-cta-bg;
+
+    @include tablet {
+      justify-content: flex-end;
+    }
+  }
+
+  &__cancel-btn,
+  &__add-btn,
+  &__save-btn {
+    font-weight: 600;
+    font-size: 0.8125rem;
+    line-height: 1.25rem;
+    height: 2.25rem;
+    border-radius: 1.25rem;
+    width: 100%;
+    border: 0;
+
+    @include tablet {
+      font-size: 0.875rem;
+      line-height: 1.375rem;
+    }
+  }
+
+  &__cancel-btn {
+    background-color: $global-white-color;
+    border: 1px solid $outline-borders;
+
+    @include tablet {
+      width: 4.5rem;
+      height: 2.375rem;
+    }
+  }
+  &__add-btn {
+    background-color: $interactive-elements-color;
+    color: $global-white-color;
+    border: 0;
+
+    @include tablet {
+      width: 8.625rem;
+      height: 2.375rem;
+    }
+  }
+
+  &__save-btn {
+    background-color: $interactive-elements-color;
+    color: $global-white-color;
+
+    @include tablet {
+      width: 3.8125rem;
+      height: 2.375rem;
+      border: 0;
+    }
+  }
+
+  &__error-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.3331rem;
+  }
+
+  &__error-icon {
+    width: 0.8331rem;
+    height: 0.8331rem;
+  }
+
+  &__error {
+    color: $out-of-stock-delete;
+    font-weight: 400;
+    font-size: 0.75rem;
+    line-height: 1.125rem;
+  }
+}
